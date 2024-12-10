@@ -27,7 +27,7 @@ RUN apk --no-cache add bash openssl \
     # let's remove default open resty configuration, we'll conditionally add modified version in entrypoint.sh
     && rm /etc/nginx/conf.d/default.conf
 
-COPY nginx.conf snippets /usr/local/openresty/nginx/conf/
+COPY nginx.conf config /usr/local/openresty/nginx/conf/
 COPY entrypoint.sh /entrypoint.sh
 
 VOLUME /etc/resty-auto-ssl
